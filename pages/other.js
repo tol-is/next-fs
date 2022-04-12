@@ -1,11 +1,11 @@
-import { getContent } from "../lib/lib.js";
+import { bundleMdxContent } from "../lib/lib.js";
 
-export default function Other(props) {
+export default function Index(props) {
   return <main>Other: {JSON.stringify(props)}</main>;
 }
 
 export const getServerSideProps = async ({ params }) => {
-  const stub = [
+  const blocks = [
     {
       _type: "mdxRef",
       file: "file.mdx",
@@ -15,8 +15,7 @@ export const getServerSideProps = async ({ params }) => {
       code: `# Hello World\n\nLorem Iprum`,
     },
   ];
-
-  const data = await getContent(stub);
+  const data = await bundleMdxContent(blocks);
 
   return {
     props: {

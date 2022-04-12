@@ -14,6 +14,10 @@ export const getServerSideProps = async ({ params }) => {
       _type: "mdxBlock",
       code: `# Hello World\n\nLorem Iprum`,
     },
+    {
+      _type: "image",
+      image: "image.jpg",
+    },
   ];
   const data = await bundleMdxContent(blocks);
 

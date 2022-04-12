@@ -5,7 +5,18 @@ export default function Other(props) {
 }
 
 export const getServerSideProps = async ({ params }) => {
-  const data = await getContent();
+  const stub = [
+    {
+      _type: "mdxRef",
+      file: "file.mdx",
+    },
+    {
+      _type: "mdxBlock",
+      code: `# Hello World\n\nLorem Iprum`,
+    },
+  ];
+
+  const data = await getContent(stub);
 
   return {
     props: {
